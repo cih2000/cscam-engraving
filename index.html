@@ -1249,7 +1249,10 @@ if('IntersectionObserver' in window){
 })();
 
 // Family site links: sibling folders on the same host/deployment.
-document.addEventListener("DOMContentLoaded", function() {
+// Runs immediately if the DOM is already ready (not solely reliant on
+// DOMContentLoaded, which can already have fired by this point on some
+// pages), and re-applies once more on window 'load' as a safety net.
+function cscamApplyFamilyLinks() {
   const isLocal = location.protocol === "file:";
   const isGhPages = location.hostname === "cih2000.github.io";
   const GH = "https://cih2000.github.io";
@@ -1268,7 +1271,13 @@ document.addEventListener("DOMContentLoaded", function() {
       link.href = isLocal ? "../cscam-marking/index.html" : isGhPages ? GH + "/cscam-marking/index.html" : "https://marking.cscam.co.kr/";
     }
   });
-});
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", cscamApplyFamilyLinks);
+} else {
+  cscamApplyFamilyLinks();
+}
+window.addEventListener("load", cscamApplyFamilyLinks);
 </script>
 </body>
 </html>
