@@ -1251,19 +1251,21 @@ if('IntersectionObserver' in window){
 // Family site links: sibling folders on the same host/deployment.
 document.addEventListener("DOMContentLoaded", function() {
   const isLocal = location.protocol === "file:";
+  const isGhPages = location.hostname === "cih2000.github.io";
+  const GH = "https://cih2000.github.io";
   const familyLinks = document.querySelectorAll(".family-bar-nav a, .drawer a");
   familyLinks.forEach(link => {
     const text = link.textContent.trim().toUpperCase();
     if (text.includes("CNC")) {
-      link.href = isLocal ? "../cscam-cnc/index.html" : "https://cnc.cscam.co.kr/";
+      link.href = isLocal ? "../cscam-cnc/index.html" : isGhPages ? GH + "/cscam-cnc/index.html" : "https://cnc.cscam.co.kr/";
     } else if (text.includes("LMS")) {
-      link.href = isLocal ? "../cscam-lms/index.html" : "https://lms.cscam.co.kr/";
+      link.href = isLocal ? "../cscam-lms/index.html" : isGhPages ? GH + "/cscam-lms/index.html" : "https://lms.cscam.co.kr/";
     } else if (text.includes("3D PRINTER")) {
-      link.href = isLocal ? "../cscam-3dp/index.html" : "https://3dp.cscam.co.kr/";
+      link.href = isLocal ? "../cscam-3dp/index.html" : isGhPages ? GH + "/cscam-3dp/index.html" : "https://3dp.cscam.co.kr/";
     } else if (text.includes("LASER") || text.includes("TEXTURING") || text.includes("ENGRAVING")) {
       link.href = "#hero";
     } else if (text.includes("MARKING")) {
-      link.href = isLocal ? "../cscam-marking/index.html" : "https://marking.cscam.co.kr/";
+      link.href = isLocal ? "../cscam-marking/index.html" : isGhPages ? GH + "/cscam-marking/index.html" : "https://marking.cscam.co.kr/";
     }
   });
 });
