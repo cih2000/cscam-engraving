@@ -70,11 +70,11 @@ section{padding:var(--section-y) 0;position:relative;}
 /* header */
 header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e2e6ec;z-index:900;}
 .family-bar{background:#05080d;border-bottom:1px solid rgba(255,255,255,.06);}
-.family-bar-inner{max-width:var(--container);margin:0 auto;padding:0 32px;height:32px;display:flex;align-items:center;justify-content:flex-end;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.family-bar-inner{max-width:var(--container);margin:0 auto;padding:0 32px;height:34px;display:flex;align-items:center;justify-content:flex-end;gap:8px;overflow-x:auto;scrollbar-width:none;}
 .family-bar-inner::-webkit-scrollbar{display:none;}
 .family-bar-label{font-family:var(--ff-mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:#4a5c78;margin-right:auto;white-space:nowrap;}
-.family-bar-nav{display:flex;gap:2px;white-space:nowrap;}
-.family-bar-nav a,.family-bar-nav span{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.02em;padding:6px 12px;border-radius:4px;color:#7488a6;transition:all .2s;}
+.family-bar-nav{display:flex;align-items:center;gap:3px;white-space:nowrap;}
+.family-bar-nav a,.family-bar-nav span{font-family:var(--ff-mono);font-size:9.5px;font-weight:600;letter-spacing:.03em;padding:6px 9px;border-radius:4px;color:#7488a6;transition:all .2s;}
 .family-bar-nav a:hover{color:#fff;background:rgba(255,255,255,.06);}
 .family-bar-nav a.active{color:#fff;background:var(--main);}
 .family-bar-nav span.disabled{color:#3a4556;cursor:not-allowed;}
@@ -234,6 +234,14 @@ header .bar{max-width:var(--container);height:68px;margin:0 auto;padding:0 32px;
   .subcards{grid-template-columns:1fr 1fr;}
 }
 
+@media (max-width:700px){
+  footer .footer-columns{grid-template-columns:1fr!important;gap:24px!important;}
+  footer, footer *{max-width:100%;overflow-wrap:anywhere;}
+  .footer-bottom{align-items:flex-start!important;}
+  .hero-links{flex-direction:column;align-items:stretch;}
+  .hero-links .btn{width:100%;justify-content:center;}
+}
+
 /* features */
 .feature-cards-grid{display:grid;gap:16px;}
 .feature-media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px;}
@@ -340,7 +348,8 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
 .footer-nav{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--text-dim);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--text-mute);}
 .footer-bottom .addr{font-family:var(--ff-mono);letter-spacing:.03em;}
-.top-btn{position:fixed;right:36px;bottom:104px;z-index:190;width:44px;height:44px;border-radius:50%;background:var(--bg);color:var(--accent);border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:all .3s ease;}
+.top-btn{position:fixed;right:36px;bottom:28px;z-index:190;width:44px;height:44px;border-radius:50%;background:var(--bg);color:var(--accent);border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:all .3s ease;}
+#ai-chatbot-widget{display:none!important;}
 
 @media (max-width:600px){
   .container{padding:0 18px;}
@@ -355,7 +364,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
 .h2,.h3,.compare-card h4,.subcard h4,.feature-item h5,.resource-row h4,.spec-row .value,.mech-col h4{color:var(--text)!important;}
 /* --- 모바일 안전망 (CC): 인라인 고정폭/고정높이 카드가 모바일에서 넘치는 것 방지 --- */
 @media (max-width:960px){
-  .family-bar-inner{justify-content:flex-start;}
+  .family-bar-inner{justify-content:flex-start;padding:0 12px;}
 }
 @media (max-width:700px){
   .card{max-width:100%;}
@@ -381,11 +390,12 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
     <div class="family-bar-inner">
       <span class="family-bar-label" data-i18n-text="{&quot;ko&quot;:&quot;CSCAM 기계사업부&quot;,&quot;en&quot;:&quot;CSCAM Machine Division&quot;}">CSCAM 기계사업부</span>
       <nav class="family-bar-nav">
-        <a href="https://cnc.cscam.co.kr/">CNC Controller</a>
-        <a href="https://lms.cscam.co.kr/">LMS Solution</a>
-        <a href="https://3dp.cscam.co.kr/">3D PRINTER</a>
+        <a href="#">CNC CONTROLLER</a>
+        <a href="#">LMS SOLUTION</a>
+        <a href="#">3D PRINTER</a>
         <a href="#hero" class="active">LASER PATTERNING</a>
-        <a href="https://marking.cscam.co.kr/">MARKING MACHINE</a>
+        <a href="#">MARKING MACHINE</a>
+        <a href="#">SOFTWARE</a>
       </nav>
     </div>
   </div>
@@ -422,11 +432,12 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
 <div class="drawer" id="drawer">
   <!-- Family Site Switcher for Mobile Drawer -->
   <div style="display:flex;flex-wrap:wrap;gap:6px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.08);font-size:10.5px;font-weight:700;font-family:var(--ff-mono);">
-    <a href="https://cnc.cscam.co.kr/" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">CNC Controller</a>
-    <a href="https://lms.cscam.co.kr/" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">LMS Solution</a>
-    <a href="https://3dp.cscam.co.kr/" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">3D PRINTER</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">CNC CONTROLLER</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">LMS SOLUTION</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">3D PRINTER</a>
     <a href="#hero" onclick="toggleDrawer()" style="padding:5px 12px;border-radius:12px;color:#fff;background:var(--accent);">LASER PATTERNING</a>
-    <a href="https://marking.cscam.co.kr/" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">MARKING MACHINE</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">MARKING MACHINE</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">SOFTWARE</a>
   </div>
   <a href="#hero" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;홈&quot;,&quot;en&quot;:&quot;Home&quot;}">홈</a>
   <a href="#concept" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;개념&quot;,&quot;en&quot;:&quot;Concept&quot;}">개념</a>
@@ -445,8 +456,8 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
     <div class="hero-grid">
       <div class="hero-copy hero-fadein">
         <span class="eyebrow" style="padding:5px 13px;border:1px solid rgba(92,127,168,.4);background:rgba(9,14,23,.4);border-radius:20px;backdrop-filter:blur(4px);">5-Axis Micro Laser Patterning</span>
-        <h1>레이저 스캐너와 <span class="accent-word">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템</h1>
-        <p data-i18n-text="{&quot;ko&quot;:&quot;국산 기술로 레이저 스캐너와 CNC 제어를 완전 결합했습니다. 단차나 이음매 없는 3D 마이크로 패턴을 가공하는 타이어 사이드 몰드 최적화 특화 시스템입니다.&quot;,&quot;en&quot;:&quot;Our system fully integrates laser scanner and CNC control with proprietary technology. It is optimized for tire Side Mold processing, producing seamless 3D micro-patterning without steps or joints.&quot;}">국산 기술로 레이저 스캐너와 CNC 제어를 완전 결합했습니다. 단차나 이음매 없는 3D 마이크로 패턴을 가공하는 타이어 사이드 몰드 최적화 특화 시스템입니다.</p>
+        <h1 data-i18n-html='{"ko":"레이저 스캐너와 <span class=\"accent-word\">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템","en":"Large-Area Precision Machining System<br>Integrating <span class=\"accent-word\">Laser Scanner and CNC Control</span>"}'>레이저 스캐너와 <span class="accent-word">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템</h1>
+        <p data-i18n-text="{&quot;ko&quot;:&quot;씨에스캠의 레이저 스캐너와 CNC 제어 기술을 결합했습니다. 단차나 이음매 없는 3D 마이크로 패턴을 가공하는 타이어 사이드 몰드 최적화 특화 시스템입니다.&quot;,&quot;en&quot;:&quot;The system integrates CSCAM laser-scanner and CNC control technology. It is optimized for tire side mold processing, producing seamless 3D micro-patterning without steps or joints.&quot;}">씨에스캠의 레이저 스캐너와 CNC 제어 기술을 결합했습니다. 단차나 이음매 없는 3D 마이크로 패턴을 가공하는 타이어 사이드 몰드 최적화 특화 시스템입니다.</p>
         <div class="hero-links">
           <a href="#contact" class="btn btn-primary" data-i18n-text="{&quot;ko&quot;:&quot;문의하기&quot;,&quot;en&quot;:&quot;Contact Us&quot;}">문의하기</a>
           <a href="#download" class="btn btn-ghost" data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 다운로드&quot;,&quot;en&quot;:&quot;Download Catalog&quot;}">카탈로그 다운로드</a>
@@ -607,7 +618,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
       </div>
       <div class="reveal card hoverable feature-item">
         <div class="feature-num">02</div>
-        <div><h5 data-i18n-text="{&quot;ko&quot;:&quot;대면적 곡면형상에 단차나 이음매 없는 패턴 가공 가능&quot;,&quot;en&quot;:&quot;Seamless Patterning on Large-Area Curved Surfaces Without Steps or Joints&quot;}">대면적 곡면형상에 단차나 이음매 없는 패턴 가공 가능</h5><p data-i18n-text="{&quot;ko&quot;:&quot;자체 개발 전용 CAM S/W와 정밀 스캐너 최적화 기술로 완벽한 심리스 면 분할 가공을 구현합니다.&quot;,&quot;en&quot;:&quot;Proprietary CAM software and precision scanner optimization technology realize perfect seamless surface partition machining.&quot;}">자체 개발 전용 CAM S/W와 정밀 스캐너 최적화 기술로 완벽한 심리스 면 분할 가공을 구현합니다.</p></div>
+        <div><h5 data-i18n-text="{&quot;ko&quot;:&quot;대면적 곡면형상에 단차나 이음매 없는 패턴 가공 가능&quot;,&quot;en&quot;:&quot;Seamless Patterning on Large-Area Curved Surfaces Without Steps or Joints&quot;}">대면적 곡면형상에 단차나 이음매 없는 패턴 가공 가능</h5><p data-i18n-text="{&quot;ko&quot;:&quot;전용 CAM S/W와 정밀 스캐너 최적화 기술로 심리스 면 분할 가공을 구현합니다.&quot;,&quot;en&quot;:&quot;Dedicated CAM software and precision scanner optimization technology support seamless surface-partition machining.&quot;}">전용 CAM S/W와 정밀 스캐너 최적화 기술로 심리스 면 분할 가공을 구현합니다.</p></div>
       </div>
       <div class="reveal card hoverable feature-item">
         <div class="feature-num">03</div>
@@ -628,7 +639,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
           <tr><td data-i18n-text="{&quot;ko&quot;:&quot;최대 가공 크기&quot;,&quot;en&quot;:&quot;Max Machining Size&quot;}">최대 가공 크기</td><td>Large Size Working Area (up to Ø1100 mm)</td></tr>
           <tr><td data-i18n-text="{&quot;ko&quot;:&quot;좌표 세팅&quot;,&quot;en&quot;:&quot;Coordinate Setup&quot;}">좌표 세팅</td><td data-i18n-text="{&quot;ko&quot;:&quot;Auto Height Sensor &amp; Work Coordinate Setting (자동 높이측정 센서)&quot;,&quot;en&quot;:&quot;Auto Height Sensor &amp; Work Coordinate Setting&quot;}">Auto Height Sensor &amp; Work Coordinate Setting (자동 높이측정 센서)</td></tr>
           <tr><td data-i18n-text="{&quot;ko&quot;:&quot;환경 배기 집진&quot;,&quot;en&quot;:&quot;Fume Extraction&quot;}">환경 배기 집진</td><td>Fume Collector and Blower</td></tr>
-          <tr><td data-i18n-text="{&quot;ko&quot;:&quot;CNC 제어기&quot;,&quot;en&quot;:&quot;CNC Controller&quot;}">CNC 제어기</td><td data-i18n-text="{&quot;ko&quot;:&quot;CSCAM 전용 CNC 컨트롤러 (Scanner Control Integration)&quot;,&quot;en&quot;:&quot;Proprietary CSCAM CNC Controller (Scanner Control Integration)&quot;}">CSCAM 전용 CNC 컨트롤러 (Scanner Control Integration)</td></tr>
+          <tr><td data-i18n-text="{&quot;ko&quot;:&quot;CNC 제어기&quot;,&quot;en&quot;:&quot;CNC Controller&quot;}">CNC 제어기</td><td data-i18n-text="{&quot;ko&quot;:&quot;CSCAM 전용 CNC 컨트롤러 (Scanner Control Integration)&quot;,&quot;en&quot;:&quot;Dedicated CSCAM CNC Controller (Scanner Control Integration)&quot;}">CSCAM 전용 CNC 컨트롤러 (Scanner Control Integration)</td></tr>
           <tr><td data-i18n-text="{&quot;ko&quot;:&quot;전용 CAM 소프트웨어&quot;,&quot;en&quot;:&quot;Dedicated CAM Software&quot;}">전용 CAM 소프트웨어</td><td data-i18n-text="{&quot;ko&quot;:&quot;CS_Laser3D by CSCAM (CAD dwg/stl 자동 변환)&quot;,&quot;en&quot;:&quot;CS_Laser3D by CSCAM (Auto DWG/STL Conversion)&quot;}">CS_Laser3D by CSCAM (CAD dwg/stl 자동 변환)</td></tr>
           <tr><td data-i18n-text="{&quot;ko&quot;:&quot;레이저 헤드&quot;,&quot;en&quot;:&quot;Laser Head&quot;}">레이저 헤드</td><td>Nano Pulsed Laser (50W), IPG</td></tr>
           <tr><td data-i18n-text="{&quot;ko&quot;:&quot;갈바노 스캐너&quot;,&quot;en&quot;:&quot;Galvano Scanner&quot;}">갈바노 스캐너</td><td>3D Scanner (X, Y, Z), Scanlab</td></tr>
@@ -696,9 +707,9 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
 <section id="software" class="bg-alt">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow">Proprietary CAM &amp; CNC</span>
-      <h2 class="h2" data-i18n-text="{&quot;ko&quot;:&quot;국내 자체 개발 CAM &amp; 컨트롤러 소프트웨어&quot;,&quot;en&quot;:&quot;Proprietary CAM &amp; Controller Software Developed in Korea&quot;}">국내 자체 개발 CAM &amp; 컨트롤러 소프트웨어</h2>
-      <p class="section-sub" style="margin:8px auto 0;" data-i18n-text="{&quot;ko&quot;:&quot;초보자도 가공 스케줄러와 직관적 트리구조로 손쉽게 사용 가능&quot;,&quot;en&quot;:&quot;Easy for beginners to use with a machining scheduler and intuitive tree structure&quot;}">초보자도 가공 스케줄러와 직관적 트리구조로 손쉽게 사용 가능</p>
+      <span class="eyebrow">CAM &amp; CNC CONTROL</span>
+      <h2 class="h2" data-i18n-text="{&quot;ko&quot;:&quot;전용 CAM &amp; 컨트롤러 소프트웨어&quot;,&quot;en&quot;:&quot;Dedicated CAM &amp; Controller Software&quot;}">전용 CAM &amp; 컨트롤러 소프트웨어</h2>
+      <p class="section-sub" style="margin:8px auto 0;" data-i18n-text="{&quot;ko&quot;:&quot;가공 스케줄러와 직관적 트리구조 제어 시스템으로 5축 레이저 패터닝 운용 효율을 높입니다.&quot;,&quot;en&quot;:&quot;A machining scheduler and intuitive tree-structure control system improve operational efficiency for 5-axis laser patterning.&quot;}">가공 스케줄러와 직관적 트리구조 제어 시스템으로 5축 레이저 패터닝 운용 효율을 높입니다.</p>
     </div>
     <div class="software-grid">
       <div class="reveal card soft-card">
@@ -769,8 +780,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
 <section id="contact" style="padding:100px 0;background:#fafbfc;border-top:1px solid var(--line-soft);">
   <div class="container" data-reveal="1">
     <div style="margin-bottom:56px;">
-      <div style="white-space:nowrap;display:inline-flex;align-items:center;gap:10px;font-family:&quot;JetBrains Mono&quot;,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);"><span style="flex-shrink:0;width:24px;height:1px;background:var(--accent);"></span>07 / Contact</div>
-      <h2 style="font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,38px);line-height:1.2;letter-spacing:-.02em;margin:12px 0 16px;color:#212121;" data-i18n-text="{&quot;ko&quot;:&quot;제품(견적) 문의처 및 사업부 위치&quot;,&quot;en&quot;:&quot;Inquiry Details &amp; Office Location&quot;}">제품(견적) 문의처 및 사업부 위치</h2>
+      <h2 style="font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,38px);line-height:1.2;letter-spacing:-.02em;margin:0 0 16px;color:#212121;" data-i18n-text="{&quot;ko&quot;:&quot;제품(견적) 문의처 및 사업부 위치&quot;,&quot;en&quot;:&quot;Inquiry Details &amp; Office Location&quot;}">제품(견적) 문의처 및 사업부 위치</h2>
     </div>
     <div class="contact-main-layout" style="display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:stretch;">
       <div style="background:#fff;border:1px solid #e2e6ec;border-radius:8px;padding:32px;box-shadow:0 1px 2px rgba(13,71,161,.06);">
@@ -813,7 +823,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
       <div style="color:#c4d1e6;">
         <div style="font-weight:700;font-size:16px;color:#fff;letter-spacing:.01em;margin-bottom:4px;" data-i18n-text="{&quot;ko&quot;:&quot;씨에스캠주식회사&quot;,&quot;en&quot;:&quot;CSCAM Co., Ltd.&quot;}">씨에스캠주식회사</div>
         <div style="font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:600;font-style:italic;font-size:15px;color:var(--accent);margin-bottom:16px;">LASER PATTERNING</div>
-        <p style="font-size:13px;line-height:1.7;max-width:380px;" data-i18n-text="{&quot;ko&quot;:&quot;레이저 마이크로 패터닝 기술 기반의 5축 초정밀 레이저 미세 가공기(MLP 1000-5A)를 자체 개발·공급합니다.&quot;,&quot;en&quot;:&quot;We independently develop and supply the 5-axis ultra-precision Laser Micro-Patterning System (MLP 1000-5A) based on laser micro-patterning technology.&quot;}">레이저 마이크로 패터닝 기술 기반의 5축 초정밀 레이저 미세 가공기(MLP 1000-5A)를 자체 개발·공급합니다.</p>
+        <p style="font-size:13px;line-height:1.7;max-width:380px;" data-i18n-text="{&quot;ko&quot;:&quot;레이저 마이크로 패터닝 기술 기반의 5축 초정밀 레이저 미세 가공기(MLP 1000-5A)를 공급합니다.&quot;,&quot;en&quot;:&quot;We supply the 5-axis ultra-precision Laser Micro-Patterning System (MLP 1000-5A) based on laser micro-patterning technology.&quot;}">레이저 마이크로 패터닝 기술 기반의 5축 초정밀 레이저 미세 가공기(MLP 1000-5A)를 공급합니다.</p>
       </div>
       <div>
         <h6 style="color:#fff;font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;margin-bottom:16px;" data-i18n-text="{&quot;ko&quot;:&quot;장비 소개&quot;,&quot;en&quot;:&quot;System Intro&quot;}">장비 소개</h6>
@@ -1249,9 +1259,6 @@ if('IntersectionObserver' in window){
 })();
 
 // Family site links: sibling folders on the same host/deployment.
-// Runs immediately if the DOM is already ready (not solely reliant on
-// DOMContentLoaded, which can already have fired by this point on some
-// pages), and re-applies once more on window 'load' as a safety net.
 function cscamApplyFamilyLinks() {
   const isLocal = location.protocol === "file:";
   const isGhPages = location.hostname === "cih2000.github.io";
@@ -1269,6 +1276,8 @@ function cscamApplyFamilyLinks() {
       link.href = "#hero";
     } else if (text.includes("MARKING")) {
       link.href = isLocal ? "../cscam-marking/index.html" : isGhPages ? GH + "/cscam-marking/index.html" : "https://marking.cscam.co.kr/";
+    } else if (text.includes("SOFTWARE")) {
+      link.href = isLocal ? "../cscam-sw/index.html" : isGhPages ? GH + "/cscam-sw/index.html" : "https://sw.cscam.co.kr/";
     }
   });
   const logoLinks = document.querySelectorAll(".brand-logo-link");
