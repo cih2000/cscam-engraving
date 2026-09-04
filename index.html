@@ -102,17 +102,24 @@ header .bar{max-width:var(--container);height:68px;margin:0 auto;padding:0 32px;
 }
 
 /* hero */
-#hero{min-height:92vh;padding-top:calc(100px + 56px);padding-bottom:56px;display:flex;align-items:center;position:relative;overflow:hidden;background:#0b1220;}
+#hero{height:815px;padding-top:60px;padding-bottom:56px;display:flex;align-items:flex-start;position:relative;overflow:hidden;background:#0b1220;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%;opacity:.55;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(92,127,168,.16) 0%,rgba(9,14,23,0) 60%),linear-gradient(180deg,rgba(9,14,23,.25) 0%,rgba(9,14,23,.55) 70%,#0b1220 100%);}
 .hero-grid{display:grid;gap:40px;align-items:center;position:relative;z-index:1;}
 .hero-copy{max-width:600px;}
-.hero-copy h1{font-family:var(--ff-head);font-weight:800;font-size:clamp(30px,4.4vw,48px);line-height:1.16;letter-spacing:-.03em;margin-bottom:22px;color:#fff;word-break:keep-all;}
+.hero-model-kicker{font-family:var(--ff-head);font-style:italic;font-weight:600;font-size:clamp(16px,3vw,22px);color:#5c9df5;margin-bottom:10px;}
+.hero-copy h1{font-family:var(--ff-head);font-weight:700;font-size:clamp(26px,4.6vw,50px);line-height:1.2;letter-spacing:-.02em;margin-bottom:22px;color:#fff;word-break:keep-all;}
 .hero-copy h1 .accent-word{color:#5c9df5;}
-#hero .eyebrow{color:#a5c7f7!important;}
-.hero-copy p{font-size:16px;color:var(--on-dark-dim);line-height:1.85;max-width:520px;margin:0 0 32px;}
+#hero .eyebrow{color:#a5c7f7!important;font-size:11px;letter-spacing:.2em;}
+.hero-copy p{font-size:15px;color:var(--on-dark-dim);line-height:1.75;max-width:520px;margin:0 0 32px;}
 .hero-links{display:flex;flex-direction:column;align-items:flex-start;gap:14px;}
+.hero-shortcut-links{display:flex;flex-direction:column;gap:12px;max-width:480px;margin-top:22px;}
+.hero-shortcut-link{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:8px;border:1px solid rgba(92,157,245,.4);background:rgba(92,157,245,.08);transition:all .2s ease;}
+.hero-shortcut-link:hover{border-color:#5c9df5;background:rgba(92,157,245,.18);transform:translateX(4px);}
+.hero-shortcut-link .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;background:#5c9df5;}
+.hero-shortcut-link b{display:block;font-family:var(--ff-head);font-weight:700;font-size:15px;color:#fff;}
+.hero-shortcut-link small{display:block;font-family:var(--ff-mono);font-size:10.5px;color:#cfe0ff;letter-spacing:.03em;margin-top:2px;}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 30px;font-size:14.5px;font-weight:700;border-radius:6px;transition:all .2s;white-space:nowrap;}
 .btn-primary{background:var(--main);color:#fff;box-shadow:var(--glow);}
 .btn-primary:hover{background:var(--accent);transform:translateY(-2px);}
@@ -429,6 +436,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
   </div>
 </header>
 
+<div style="height:100px;width:100%;"></div>
 <div class="drawer" id="drawer">
   <!-- Family Site Switcher for Mobile Drawer -->
   <div style="display:flex;flex-wrap:wrap;gap:6px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.08);font-size:10.5px;font-weight:700;font-family:var(--ff-mono);">
@@ -456,12 +464,24 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
     <div class="hero-grid">
       <div class="hero-copy hero-fadein">
         <span class="eyebrow" style="padding:5px 13px;border:1px solid rgba(92,127,168,.4);background:rgba(9,14,23,.4);border-radius:20px;backdrop-filter:blur(4px);">5-Axis Micro Laser Patterning</span>
-        <h1 data-i18n-html='{"ko":"레이저 스캐너와 <span class=\"accent-word\">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템","en":"Large-Area Precision Machining System<br>Integrating <span class=\"accent-word\">Laser Scanner and CNC Control</span>"}'>레이저 스캐너와 <span class="accent-word">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템</h1>
+        <div class="hero-model-kicker">MLP 1000-5A · CS_Laser 3D</div>
+        <h1 data-i18n-html='{"ko":"레이저 스캐너와<br><span class=\"accent-word\">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템","en":"Large-Area Precision Machining System<br>Integrating <span class=\"accent-word\">Laser Scanner and CNC Control</span>"}'>레이저 스캐너와<br><span class="accent-word">CNC</span>가 결합된<br>대면적 고정밀 가공 시스템</h1>
         <p data-i18n-text="{&quot;ko&quot;:&quot;씨에스캠의 레이저 스캐너와 CNC 제어 기술을 결합했습니다. 단차나 이음매 없는 3D 마이크로 패턴을 가공하는 타이어 사이드 몰드 최적화 특화 시스템입니다.&quot;,&quot;en&quot;:&quot;The system integrates CSCAM laser-scanner and CNC control technology. It is optimized for tire side mold processing, producing seamless 3D micro-patterning without steps or joints.&quot;}">씨에스캠의 레이저 스캐너와 CNC 제어 기술을 결합했습니다. 단차나 이음매 없는 3D 마이크로 패턴을 가공하는 타이어 사이드 몰드 최적화 특화 시스템입니다.</p>
-        <div class="hero-links">
-          <a href="#contact" class="btn btn-primary" data-i18n-text="{&quot;ko&quot;:&quot;문의하기&quot;,&quot;en&quot;:&quot;Contact Us&quot;}">문의하기</a>
-          <a href="#download" class="btn btn-ghost" data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 다운로드&quot;,&quot;en&quot;:&quot;Download Catalog&quot;}">카탈로그 다운로드</a>
-          <a href="#concept" class="btn btn-text" data-i18n-text="{&quot;ko&quot;:&quot;기술 알아보기 →&quot;,&quot;en&quot;:&quot;Learn More About Technology →&quot;}">기술 알아보기 →</a>
+        <div class="hero-shortcut-links">
+          <a href="#application" class="hero-shortcut-link">
+            <span class="dot"></span>
+            <div>
+              <b data-i18n-text="{&quot;ko&quot;:&quot;타이어 사이드 금형 마이크로 패턴 적용&quot;,&quot;en&quot;:&quot;Tire Side Mold Micro-Pattern Application&quot;}">타이어 사이드 금형 마이크로 패턴 적용</b>
+              <small data-i18n-text="{&quot;ko&quot;:&quot;적용사례 자세히 보기&quot;,&quot;en&quot;:&quot;See Application Cases&quot;}">적용사례 자세히 보기</small>
+            </div>
+          </a>
+          <a href="#software" class="hero-shortcut-link">
+            <span class="dot"></span>
+            <div>
+              <b data-i18n-text="{&quot;ko&quot;:&quot;전용 CAM &amp; 컨트롤러 소프트웨어&quot;,&quot;en&quot;:&quot;Dedicated CAM &amp; Controller Software&quot;}">전용 CAM &amp; 컨트롤러 소프트웨어</b>
+              <small data-i18n-text="{&quot;ko&quot;:&quot;소프트웨어 자세히 보기&quot;,&quot;en&quot;:&quot;Learn more about Software&quot;}">소프트웨어 자세히 보기</small>
+            </div>
+          </a>
         </div>
         <div class="hero-stats">
           <div class="stat"><b data-i18n-text="{&quot;ko&quot;:&quot;5축 동시&quot;,&quot;en&quot;:&quot;5-Axis Simultaneous&quot;}">5축 동시</b><span data-i18n-text="{&quot;ko&quot;:&quot;곡면 3D 패터닝&quot;,&quot;en&quot;:&quot;Curved 3D Patterning&quot;}">곡면 3D 패터닝</span></div>
