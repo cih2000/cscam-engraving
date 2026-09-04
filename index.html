@@ -107,7 +107,7 @@ header .bar{max-width:var(--container);height:68px;margin:0 auto;padding:0 32px;
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%;opacity:.55;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(92,127,168,.16) 0%,rgba(9,14,23,0) 60%),linear-gradient(180deg,rgba(9,14,23,.25) 0%,rgba(9,14,23,.55) 70%,#0b1220 100%);}
 .hero-grid{display:grid;gap:40px;align-items:center;position:relative;z-index:1;}
-.hero-copy{max-width:600px;}
+.hero-copy{max-width:680px;}
 .hero-model-kicker{font-family:var(--ff-head);font-style:italic;font-weight:600;font-size:clamp(16px,3vw,22px);color:#5c9df5;margin-bottom:10px;}
 .hero-copy h1{font-family:var(--ff-head);font-weight:700;font-size:clamp(26px,4.6vw,50px);line-height:1.2;letter-spacing:-.02em;margin-bottom:22px;color:#fff;word-break:keep-all;}
 .hero-copy h1 .accent-word{color:#5c9df5;}
@@ -127,8 +127,8 @@ header .bar{max-width:var(--container);height:68px;margin:0 auto;padding:0 32px;
 .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:#fff;}
 .btn-text{padding:15px 4px;color:#e2e8f0;font-weight:600;}
 .btn-text:hover{color:#fff;}
-.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 28px;margin:44px 0 0;padding-top:28px;border-top:1px solid var(--line-soft);max-width:560px;}
-.stat b{display:block;font-family:var(--ff-mono);font-weight:700;font-size:clamp(18px,2.4vw,22px);color:#fff;}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 28px;margin:22px 0 0;padding-top:14px;border-top:1px solid var(--line-soft);max-width:680px;}
+.stat b{display:block;font-family:var(--ff-mono);font-weight:700;font-size:clamp(18px,2.4vw,22px);color:#fff;white-space:nowrap;}
 .stat span{font-size:11px;color:var(--on-dark-dim);letter-spacing:.03em;}
 .hero-video{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:16/11;background:#0b1220;
   mask-image:radial-gradient(ellipse at center,rgba(0,0,0,1) 52%,rgba(0,0,0,0) 100%);
@@ -141,7 +141,7 @@ header .bar{max-width:var(--container);height:68px;margin:0 auto;padding:0 32px;
 @media (min-width:880px){
   .hero-grid{grid-template-columns:54% 46%;gap:56px;}
   .hero-links{flex-direction:row;gap:18px;}
-  .hero-stats{grid-template-columns:repeat(4,1fr);}
+  .hero-stats{grid-template-columns:1.9fr 1fr 1fr 1fr;}
 }
 
 /* concept */
@@ -484,7 +484,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
           </a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><b data-i18n-text="{&quot;ko&quot;:&quot;5축 동시&quot;,&quot;en&quot;:&quot;5-Axis Simultaneous&quot;}">5축 동시</b><span data-i18n-text="{&quot;ko&quot;:&quot;곡면 3D 패터닝&quot;,&quot;en&quot;:&quot;Curved 3D Patterning&quot;}">곡면 3D 패터닝</span></div>
+          <div class="stat"><b data-i18n-text="{&quot;ko&quot;:&quot;5축 동시&quot;,&quot;en&quot;:&quot;5-Axis Simultaneous&quot;}" style="font-size:clamp(16px,2vw,20px);">5축 동시</b><span data-i18n-text="{&quot;ko&quot;:&quot;곡면 3D 패터닝&quot;,&quot;en&quot;:&quot;Curved 3D Patterning&quot;}">곡면 3D 패터닝</span></div>
           <div class="stat"><b>Ø1100 mm</b><span data-i18n-text="{&quot;ko&quot;:&quot;최대 가공 범위&quot;,&quot;en&quot;:&quot;Max Machining Area&quot;}">최대 가공 범위</span></div>
           <div class="stat"><b>350 ㎛</b><span data-i18n-text="{&quot;ko&quot;:&quot;음각 깊이&quot;,&quot;en&quot;:&quot;Engraving Depth&quot;}">음각 깊이</span></div>
           <div class="stat"><b>50 ㎛</b><span data-i18n-text="{&quot;ko&quot;:&quot;패턴 간격&quot;,&quot;en&quot;:&quot;Pattern Pitch&quot;}">패턴 간격</span></div>
@@ -1284,30 +1284,31 @@ function cscamApplyFamilyLinks() {
   const isLocal = location.protocol === "file:";
   const isGhPages = location.hostname === "cih2000.github.io";
   const GH = "https://cih2000.github.io";
-  const withLang = (url) => {
-    if (window.LANG !== "en" || url.charAt(0) === "#") return url;
-    return url + (url.includes("?") ? "&" : "?") + "lang=en";
-  };
+  const en = window.LANG === "en";
+  // Targets with a dedicated /en/ folder (separate page per language).
+  const folderUrl = (local, prod) => isLocal ? ("../" + local + "/" + (en ? "en/index.html" : "index.html")) : isGhPages ? (GH + "/" + local + "/" + (en ? "en/index.html" : "index.html")) : ("https://" + prod + "/" + (en ? "en/index.html" : ""));
+  // Targets that use a ?lang=en query on a single page.
+  const queryUrl = (local, prod) => isLocal ? ("../" + local + "/index.html" + (en ? "?lang=en" : "")) : isGhPages ? (GH + "/" + local + "/index.html" + (en ? "?lang=en" : "")) : ("https://" + prod + "/" + (en ? "?lang=en" : ""));
   const familyLinks = document.querySelectorAll(".family-bar-nav a, .drawer a");
   familyLinks.forEach(link => {
     const text = link.textContent.trim().toUpperCase();
     if (text.includes("CNC")) {
-      link.href = withLang(isLocal ? "../cscam-cnc/index.html" : isGhPages ? GH + "/cscam-cnc/index.html" : "https://cnc.cscam.co.kr/");
+      link.href = folderUrl("cscam-cnc", "cnc.cscam.co.kr");
     } else if (text.includes("LMS")) {
-      link.href = withLang(isLocal ? "../cscam-lms/index.html" : isGhPages ? GH + "/cscam-lms/index.html" : "https://lms.cscam.co.kr/");
+      link.href = folderUrl("cscam-lms", "lms.cscam.co.kr");
     } else if (text.includes("3D PRINTER")) {
-      link.href = withLang(isLocal ? "../cscam-3dp/index.html" : isGhPages ? GH + "/cscam-3dp/index.html" : "https://3dp.cscam.co.kr/");
+      link.href = queryUrl("cscam-3dp", "3dp.cscam.co.kr");
     } else if (text.includes("LASER") || text.includes("TEXTURING") || text.includes("ENGRAVING")) {
       link.href = "#hero";
     } else if (text.includes("MARKING")) {
-      link.href = withLang(isLocal ? "../cscam-marking/index.html" : isGhPages ? GH + "/cscam-marking/index.html" : "https://marking.cscam.co.kr/");
+      link.href = queryUrl("cscam-marking", "marking.cscam.co.kr");
     } else if (text.includes("SOFTWARE")) {
-      link.href = withLang(isLocal ? "../cscam-sw/index.html" : isGhPages ? GH + "/cscam-sw/index.html" : "https://sw.cscam.co.kr/");
+      link.href = queryUrl("cscam-sw", "sw.cscam.co.kr");
     }
   });
   const logoLinks = document.querySelectorAll(".brand-logo-link");
   logoLinks.forEach(link => {
-    link.href = withLang(isLocal ? "../cscam-hub/index.html" : isGhPages ? GH + "/cscam-hub/index.html" : "https://cscam.co.kr/");
+    link.href = folderUrl("cscam-hub", "cscam.co.kr");
   });
 }
 if (document.readyState === "loading") {
