@@ -61,8 +61,65 @@
     '메시지를 입력하세요 (준비 중)': 'Enter your message (Coming soon)'
   };
 
+  var zhTextMap = {
+    "메뉴 열기": "打开菜单",
+    "메뉴 닫기": "关闭菜单",
+    "다시 재생": "重新播放",
+    "맨 위로": "返回顶部",
+    "CSCAM MLP 1000-5A 레이저 잉그레이빙 머신 외관": "CSCAM MLP 1000-5A激光雕刻机外观",
+    "연속파 레이저 딩플 형성 단면": "连续波激光凹点形成截面",
+    "펄스 레이저 딩플 형성 단면": "脉冲激光凹点形成截面",
+    "펄스 폭 스펙트럼 다이어그램: 나노·피코·팜토초": "脉冲宽度频谱图:纳秒·皮秒·飞秒",
+    "일반 패턴 상세": "普通图案详情",
+    "마이크로 패턴 상세": "微图案详情",
+    "가공 디테일 대화면": "加工细节大图",
+    "패턴가공 1": "图案加工1",
+    "패턴가공 1-2": "图案加工1-2",
+    "패턴가공 2": "图案加工2",
+    "패턴가공 3": "图案加工3",
+    "패턴가공 4": "图案加工4",
+    "패턴가공 5": "图案加工5",
+    "MLP 1000-5A 다중 배치 설치 전경": "MLP 1000-5A多台安装全景",
+    "MLP 1000-5A 장비 외관": "MLP 1000-5A设备外观",
+    "5축 로터리 테이블 상세": "5轴旋转工作台详情",
+    "가공 소재 클로즈업": "加工材料特写",
+    "국내 D사 실제 가동 현장 사진": "国内D公司实际运行现场照片",
+    "유럽 D사 실제 가동 현장 사진": "欧洲D公司实际运行现场照片",
+    "레이저 스캐너와": "结合激光扫描仪与",
+    "레이저 스캐너와 CNC 제어를 완전 결합한 5축 대면적 고정밀 마이크로 패턴 가공기 MLP 1000-5A. 타이어 사이드 몰드 각인 최적화, 단차·이음매 없는 3D 마이크로 텍스처링. — CSCAM 기계사업부": "MLP 1000-5A是一台完全结合激光扫描仪与CNC控制的5轴大面幅高精度微图案加工机。专为轮胎侧模刻印优化,实现无台阶、无接缝的3D微纹理加工。— CSCAM机械事业部",
+    "레이저 스캐너 + CNC 결합 5축 대면적 마이크로 패턴 가공기. 타이어 몰드 각인 특화.": "激光扫描仪+CNC结合的5轴大面幅微图案加工机,专为轮胎模具刻印设计。",
+    "가 결합된": "CNC控制的",
+    "대면적 고정밀 가공 시스템": "大面幅高精度加工系统",
+    "웹 브라우저가 비디오 태그를 지원하지 않습니다.": "您的浏览器不支持视频标签。",
+    "CSCAM은": "CSCAM采用",
+    "기술로 열 변형 없이 소재 표면에 정밀 미세 패턴을 구현합니다. 펄스 폭(Pulse Duration)에 따른 Nano·Pico·Femto초 레이저의 가공 특성을 최적화하여": "技术,在材料表面实现无热变形的精密微图案。通过优化纳秒·皮秒·飞秒激光按脉冲宽度(Pulse Duration)呈现的加工特性,同时达成",
+    "을 동시에 달성합니다.": "。",
+    "에너지를 연속적으로 조사하여 소재를": "连续照射能量,使材料",
+    "하는 방식입니다. 열 영향부(HAZ)가 형성되어 미세 패터닝 시 열 변형 및 버(Burr)가 발생할 수 있습니다.": "。会形成热影响区(HAZ),在微图案加工时可能产生热变形及毛刺(Burr)。",
+    "극소 시간 동안 첨단 에너지를 집속시켜 소재를": "在极短时间内聚焦高能量,使材料",
+    "시키는 방식입니다. 주변 소재로의 열 전도를 차단하여 왜곡 없는 완벽한 에지를 도출합니다.": "。阻断向周边材料的热传导,呈现无变形的完美边缘。",
+    "소재 제거율(Removal Rate)이 높아 가공 속도가 빠름. 미세한 열영향부(HAZ)가 존재하나 대용량 제거 및": "材料去除率(Removal Rate)高,加工速度快。虽存在微小热影响区(HAZ),但适用于大批量去除及",
+    "에 적합.": "。",
+    "가공 효율과 정밀도의 균형점. 열 영향을 대폭 억제하면서 정밀한 표면 질감 구현 및": "兼顾加工效率与精度的平衡点。大幅抑制热影响,同时实现精密表面质感及",
+    "에 적용.": "应用。",
+    "열 전달 시간보다 짧은 초단펄스로 \"Cold Ablation\" 구현. 열 왜곡 및 Burr가 전혀 없는": "以短于热传导时间的超短脉冲实现\"冷烧蚀(Cold Ablation)\",完全无热变形及毛刺,完成",
+    "완성.": "。",
+    "CSCAM의 제어 시스템은 나노초(Nano) 및 펨토초(Femto) 펄스 폭 조절을 모두 지원하며, 본 장비(MLP 1000-5A)는": "CSCAM的控制系统同时支持纳秒(Nano)及飞秒(Femto)脉冲宽度调节,本设备(MLP 1000-5A)将",
+    "와 5축 로터리 제어를 하드웨어 레이어에서 정밀히 정합하여 열영향부(HAZ) 왜곡이 거의 없는 완벽한 에지를 도출해 냅니다.": "与5轴旋转控制在硬件层精密整合,呈现几乎无热影响区(HAZ)变形的完美边缘。",
+    "브랜드 시인성 50% 향상 솔루션": "品牌可视性提升50%解决方案",
+    "기존의 일반 가공 패턴은 금속 경계면의 난반사로 인해 로고나 정보 코드의 시인성이 크게 떨어집니다. CSCAM의 마이크로 패턴 텍스처링 공정은 빛의 각도를 인위적으로 차단하여 칠흑 같은 입체 구조를 생성함으로써, 일반 가공 대비": "传统加工图案因金属边界面漫反射,导致标志或信息码的可视性大幅下降。CSCAM的微图案纹理加工工艺通过人为阻断光线角度,生成漆黑般的立体结构,相较普通加工可提供",
+    "을 제공합니다.": "。",
+    "국내외 글로벌 고객사에 적용되어 장비 품질 및 내구성이 확인되었습니다.": "已应用于国内外全球客户,验证了设备品质与耐久性。",
+    "(유럽, 한국, 러시아, 중국, 필란드 등 수 백조 이상)": "(欧洲、韩国、俄罗斯、中国、芬兰等,累计数百台以上)",
+    "다운로드": "下载",
+    "기계사업부": "机械事业部",
+    "전남광주특별시 광산구 평동산단로 239-15": "韩国全罗南道光州广域市光山区平洞产业园路239-15",
+    "메시지를 입력하세요 (준비 중)": "请输入消息(准备中)"
+  };
+
   function applyAutoText(root) {
-    if (window.LANG !== 'en') return;
+    if (window.LANG !== 'en' && window.LANG !== 'zh') return;
+    var map = window.LANG === 'zh' ? zhTextMap : textMap;
     var scope = root || document.body;
     if (!scope) return;
     var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
@@ -77,12 +134,12 @@
     nodes.forEach(function (node) {
       var raw = node.nodeValue;
       var trimmed = raw.trim();
-      if (textMap[trimmed] !== undefined) node.nodeValue = raw.replace(trimmed, textMap[trimmed]);
+      if (map[trimmed] !== undefined) node.nodeValue = raw.replace(trimmed, map[trimmed]);
     });
     ['placeholder', 'aria-label', 'title', 'content', 'alt'].forEach(function (attr) {
       document.querySelectorAll('[' + attr + ']').forEach(function (el) {
         var value = el.getAttribute(attr);
-        if (textMap[value] !== undefined) el.setAttribute(attr, textMap[value]);
+        if (map[value] !== undefined) el.setAttribute(attr, map[value]);
       });
     });
   }
@@ -113,7 +170,7 @@
       }
     });
     applyAutoText(document.documentElement);
-    if (window.LANG === 'en') {
+    if (window.LANG === 'en' || window.LANG === 'zh') {
       new MutationObserver(function (mutations) {
         mutations.forEach(function (m) {
           m.addedNodes.forEach(function (node) {
