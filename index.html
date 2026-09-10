@@ -385,6 +385,8 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
   .family-switcher-header { display: none !important; }
 }
 .header-right-utility { display: flex !important; }
+.lang-btn { color: #757575; }
+.lang-btn.active { color: #1e5aa8; }
 </style>
 </head>
 <body>
@@ -424,7 +426,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
       <div class="header-right-utility" style="display:flex;align-items:center;gap:10px;">
         <a class="brand-logo-link" href="https://cscam.co.kr/" aria-label="CSCAM 종합 홈페이지" style="display:flex;align-items:baseline;font-family:Verdana,'Noto Sans KR',sans-serif;font-size:23px;color:#1e5aa8;text-decoration:none;"><span style="font-weight:700;">CS</span><span style="font-weight:400;">CAM</span></a>
         <div style="width:1px;height:36px;background:#e2e6ec;margin:0 4px;"></div>
-        <div style="display:flex;gap:6px;align-items:center;color:#757575;font-size:11px;font-family:&quot;JetBrains Mono&quot;,monospace;letter-spacing:.1em;">
+        <div style="display:flex;gap:6px;align-items:center;color:#757575;font-size:12.5px;font-weight:700;letter-spacing:.02em;">
           <a href="?lang=ko" class="lang-btn" data-lang="ko" style="text-decoration:none;">KR</a><span>·</span><a href="?lang=en" class="lang-btn" data-lang="en" style="text-decoration:none;">EN</a><span>·</span><a href="?lang=zh" class="lang-btn" data-lang="zh" style="text-decoration:none;">CH</a><span>·</span><a href="?lang=jp" class="lang-btn" data-lang="jp" style="text-decoration:none;">JP</a>
         </div>
       </div>
@@ -1322,6 +1324,11 @@ if (document.readyState === "loading") {
   cscamApplyFamilyLinks();
 }
 window.addEventListener("load", cscamApplyFamilyLinks);
+</script>
+<script>
+document.querySelectorAll('.lang-btn').forEach(function (btn) {
+  btn.classList.toggle('active', btn.getAttribute('data-lang') === (window.LANG || 'ko'));
+});
 </script>
 <script>
 (function(){
