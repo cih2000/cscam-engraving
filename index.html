@@ -355,7 +355,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
 .footer-nav{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:var(--text-dim);}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--text-mute);}
 .footer-bottom .addr{font-family:var(--ff-mono);letter-spacing:.03em;}
-.top-btn{position:fixed;right:36px;bottom:28px;z-index:190;width:44px;height:44px;border-radius:50%;background:var(--bg);color:var(--accent);border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:all .3s ease;}
+/* .top-btn removed (overlapped with chatbot icon) */
 #ai-chatbot-widget{display:none!important;}
 
 @media (max-width:600px){
@@ -899,9 +899,7 @@ footer{background:var(--bg-deep);border-top:1px solid var(--line-soft);padding:4
   </div>
 </footer>
 
-<button type="button" class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-</button>
+<!-- top-btn removed (overlapped with chatbot icon) -->
 
 <script>
 function toggleDrawer(){document.getElementById('drawer').classList.toggle('open');}
